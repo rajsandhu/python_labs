@@ -16,4 +16,20 @@
 
 # but it does look like I have VPC stuff running in the Frankfurt 
 
+# --------
+
+# https://stackoverflow.com/questions/43694793/how-to-list-the-name-of-all-aws-subnets-using-boto3
+
 import boto3
+
+client = boto3.client("s3")
+
+response = client.list_buckets()
+
+for bucket in response["Buckets"]:
+    print(bucket["Name"])
+
+# vpc_client = boto3.client("vpc")
+# response = client.list_vpcs()
+
+
